@@ -2,10 +2,7 @@
 
 
 
-
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,8 +12,13 @@
     <title>Document</title>
 </head>
 <body>
-
-<h1>Hello World</h1>
     
+
+<h1> BEM VINDO! </h1>
+
 </body>
 </html>
+
+
+
+

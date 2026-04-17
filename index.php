@@ -6,13 +6,11 @@
     <title>Document</title>
 </head>
 <body>
-
+    
 <a href="pages/cadastro.php"> Cadastro </a>
 <br>
 <a href="pages/login.php"> Login </a>
 
 
-
-    
 </body>
 </html>
