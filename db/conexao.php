@@ -16,5 +16,5 @@ if($con->connect_error){
 }
 
 
-$usuarios = $con->query("select * from usuario  where 1");
+
 

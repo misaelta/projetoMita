@@ -1,10 +1,10 @@
 <?php
-
 include_once("../db/conexao.php");
+include_once("../models/usuario.php");
 
 session_start();
 
-$usuarios = [];
+$usuarios =pegarUsuario(); ;
 $email =$_POST['email'];
 $senha =$_POST['senha'];
 
