@@ -1,5 +1,5 @@
 <?php
-
+include_once("../db/conexao.php");
 session_start();
 
 $nome= $_POST['nome'];
@@ -7,7 +7,8 @@ $idade= $_POST['idade'];
 $email= $_POST['email'];
 $senha= $_POST['senha'];
 $confirmarSenha= $_POST['confirmarSenha'];
-$usuarios=$_SESSION['usuarios'];
+$data_criado= time();
+
 
 if($senha != $confirmarSenha){ 
     $_SESSION['error_senha']="senha não confere";
@@ -30,13 +31,5 @@ if($usuario['email']==$email ){
 
 
 
-$dadosUsuario = [
-    'nome' => $nome,
-    'idade' => $idade,
-    'email' => $email,
-    'senha' => $senha
-];
-
-
-$_SESSION['usuarios'][] = $dadosUsuario;
+$con->query(" INSERT INTO usuarios(nome,idade,email,senha,data_criado) VALUES('$nome','$idade','$email','$senha','$data_criado')");
 header('location: ../pages/login.php');

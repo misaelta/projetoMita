@@ -18,11 +18,3 @@ if($con->connect_error){
 
 $usuarios = $con->query("select * from usuario  where 1");
 
-
-foreach($usuarios as $user){
-
-echo "<br>";
-echo $user['idade'];
-echo "<br>";
-
-}

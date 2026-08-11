@@ -1,8 +1,10 @@
 <?php
 
-session_start();
-isset($_SESSION['usuarios']) ? $usuarios = $_SESSION['usuarios'] : $usuario = null;
+include_once("../db/conexao.php");
 
+session_start();
+
+$usuarios = [];
 $email =$_POST['email'];
 $senha =$_POST['senha'];
 
