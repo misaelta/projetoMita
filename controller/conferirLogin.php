@@ -1,20 +1,24 @@
 <?php
+session_start();
+
 include_once("../db/conexao.php");
 include_once("../models/usuario.php");
 
-session_start();
+$email = $_POST['email'] ?? '';
+$senha = $_POST['senha'] ?? '';
 
-$usuarios =pegarUsuario(); ;
-$email =$_POST['email'];
-$senha =$_POST['senha'];
+$userModel = new Usuario($con);
+$usuario = $userModel->verificarLogin($email, $senha);
 
-foreach ($usuarios as $usuario) {
-
-if($usuario['email']==$email && $usuario['senha']==strval($senha) ){
-    header("location: ../pages/paginaPrincipal.php");
-}else{
-    $_SESSION['error']="Dados incorretos";
-    header("location: ../pages/login.php");
-}
-
+// Se $usuario contiver os dados (não for null/false), o login é válido
+if ($usuario) {
+    $_SESSION['usuario_id'] = $usuario['id'];
+    $_SESSION['usuario_email'] = $usuario['email'];
+    
+    header("Location: ../pages/paginaPrincipal.php");
+    exit();
+} else {
+    $_SESSION['error'] = "Dados incorretos";
+    header("Location: ../pages/login.php");
+    exit();
 }
