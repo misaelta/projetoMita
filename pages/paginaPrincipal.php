@@ -1,6 +1,8 @@
 <?php
 
+session_start();
 
+$nome =$_SESSION['usuario_nome'];
 
 ?>
 
@@ -14,7 +16,7 @@
 <body>
     
 
-<h1> BEM VINDO! </h1>
+<h1> BEM VINDO! <?= $nome ?> </h1>
 
 </body>
 </html>
